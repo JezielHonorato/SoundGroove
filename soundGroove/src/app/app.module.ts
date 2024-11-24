@@ -1,24 +1,26 @@
-// src/app/app.module.ts
 import { NgModule } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';  // Importe o FormsModule aqui
-
+import { MusicSearchComponent } from './music-search/music-search.component';
+import { MusicDetailComponent } from './music-detail/music-detail.component';
 import { AppComponent } from './app.component';
-import { SearchComponent } from './search/search.component';
-import { HttpClientModule } from '@angular/common/http'; // Para fazer requisições HTTP
 import { SpotifyService } from './spotify.service';
 
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    SearchComponent
-  ],
   imports: [
     BrowserModule,
-    FormsModule,  // Adicione o FormsModule
-    HttpClientModule
+    CommonModule,
+    FormsModule,
+    AppRoutingModule,
+    MusicSearchComponent,
+    MusicDetailComponent,
+    AppComponent,
   ],
-  providers: [SpotifyService],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+  providers: [SpotifyService, provideHttpClient()],
+  bootstrap: []
+})  
+export class AppModule {}
