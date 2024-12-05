@@ -19,8 +19,10 @@ import { AppRoutingModule } from './app-routing.module';
     MusicSearchComponent,
     MusicDetailComponent,
     AppComponent,
+    AppRoutingModule
   ],
   providers: [SpotifyService, provideHttpClient()],
   bootstrap: []
+  
 })  
 export class AppModule {}
