@@ -1,28 +1,28 @@
 import { NgModule } from '@angular/core';
-import { provideHttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { MusicSearchComponent } from './music-search/music-search.component';
-import { MusicDetailComponent } from './music-detail/music-detail.component';
-import { AppComponent } from './app.component';
-import { SpotifyService } from './spotify.service';
 
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { SearchComponent } from './components/search/search.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { SpotifyService } from './services/spotify/spotify.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    CommonModule,
-    FormsModule,
-    AppRoutingModule,
-    MusicSearchComponent,
-    MusicDetailComponent,
+  declarations: [
     AppComponent,
-    AppRoutingModule
+    DetailComponent,
+    NavbarComponent,
+    HomeComponent,
+    LoginComponent,
+    SearchComponent
   ],
-  providers: [SpotifyService, provideHttpClient()],
-  bootstrap: []
-  
-})  
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [SpotifyService],
+  bootstrap: [AppComponent],
+})
 export class AppModule {}
